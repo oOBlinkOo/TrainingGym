@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { App, ViewController } from 'ionic-angular';
 import {HomePage} from '../home/home';
 
 import { NavController } from 'ionic-angular';
@@ -9,7 +10,10 @@ import { NavController } from 'ionic-angular';
 })
 export class testingPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController ,
+      public viewCtrl: ViewController,
+      public appCtrl: App
+      ) {
 
   }
 username : string = null;
@@ -19,7 +23,14 @@ showmessageWrongPassword :boolean = false;
 validateLogin(){
   if (this.username=='123' && this.password=='123' ){
     console.log('got it');
-     this.navCtrl.push(HomePage, {
+      // this.viewCtrl.dismiss();
+    //   this.appCtrl.getRootNav().push(HomePage, {
+    //   username:this.username,
+    //   password:this.password
+    
+    // });
+
+     this.navCtrl.setRoot(HomePage, {
       username:this.username,
       password:this.password
     
@@ -30,5 +41,15 @@ validateLogin(){
 }
 
 }
+
+// pushPage() {
+//       this.viewCtrl.dismiss();
+//       this.appCtrl.getRootNav().push(HomePage, {
+//       username:this.username,
+//       password:this.password
+    
+//     });
+
+//     }
 
 }

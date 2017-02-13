@@ -16,6 +16,7 @@ export class HomePage {
   }
 
   ngOnInit(){
+    
     console.log(this.username,this.password);
   }
 
