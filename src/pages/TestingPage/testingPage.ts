@@ -13,12 +13,14 @@ export class testingPage {
   }
 username : string = null;
 password : string= null;
+showmessageWrongPassword :boolean = false;
 
 validateLogin(){
   if (this.username=='123' && this.password=='123' ){
     console.log('got it');
 }else {
     console.log('password incorrecto');
+    this.showmessageWrongPassword = true;
 }
 
 }
