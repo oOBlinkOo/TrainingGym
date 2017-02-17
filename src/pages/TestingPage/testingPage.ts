@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { App, ViewController } from 'ionic-angular';
 import {HomePage} from '../home/home';
+import {UserService} from '../../app/services/user.service';
 
 import { NavController } from 'ionic-angular';
 
@@ -12,7 +13,8 @@ export class testingPage {
 
   constructor(public navCtrl: NavController ,
       public viewCtrl: ViewController,
-      public appCtrl: App
+      public appCtrl: App,
+      private userService: UserService
       ) {
 
   }
@@ -21,24 +23,26 @@ password : string= null;
 showmessageWrongPassword :boolean = false;
 
 validateLogin(){
-  if (this.username=='123' && this.password=='123' ){
-    console.log('got it');
-      // this.viewCtrl.dismiss();
-    //   this.appCtrl.getRootNav().push(HomePage, {
-    //   username:this.username,
-    //   password:this.password
-    
-    // });
-
-     this.navCtrl.setRoot(HomePage, {
-      username:this.username,
-      password:this.password
-    
-    });
-}else {
-    console.log('password incorrecto');
-    this.showmessageWrongPassword = true;
-}
+         this.userService.login(this.username, this.password).subscribe(
+              responseUserService => {
+                if (responseUserService) {
+                  console.log('paso por aqui en el validate login');
+                    this.navCtrl.setRoot(HomePage, {
+                      username:this.username,
+                      password:this.password
+                    
+                    });
+                }
+                else {
+                  null;
+                  console.log('fallo en el else del response nose');
+                }
+              }, function (error) {
+                this.message = error.statusText;
+                console.log(this.message);
+                // console.log('error something in drag and drop');
+              }
+            );
 
 }
 
