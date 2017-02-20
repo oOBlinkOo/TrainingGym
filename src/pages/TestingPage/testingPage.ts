@@ -26,7 +26,7 @@ validateLogin(){
          this.userService.login(this.username, this.password).subscribe(
               responseUserService => {
                 if (responseUserService) {
-                  console.log('paso por aqui en el validate login');
+                  console.log('paso por aqui en el validate login',responseUserService);
                     this.navCtrl.setRoot(HomePage, {
                       username:this.username,
                       password:this.password
