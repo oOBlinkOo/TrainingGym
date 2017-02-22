@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { LoadingController } from 'ionic-angular';
 
 import { NavController ,NavParams } from 'ionic-angular';
 
@@ -12,7 +13,9 @@ export class HomePage {
       response:any;
       name:string=null;
 
-  constructor(public navCtrl: NavController ,public params:NavParams) {
+  constructor(public navCtrl: NavController ,public params:NavParams,
+              
+  ) {
     this.username = params.get('username');
     this.password = params.get('password');
     this.response = params.get('response');
@@ -23,4 +26,5 @@ export class HomePage {
     console.log(this.username,this.password);
   }
 
+ 
 }
