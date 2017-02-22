@@ -28,8 +28,9 @@ validateLogin(){
                 if (responseUserService) {
                   console.log('paso por aqui en el validate login',responseUserService);
                     this.navCtrl.setRoot(HomePage, {
-                      username:this.username,
-                      password:this.password
+                      username:responseUserService.email,
+                      password:responseUserService.password,
+                      response:responseUserService
                     
                     });
                 }
