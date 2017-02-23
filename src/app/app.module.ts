@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { testingPage } from '../pages/TestingPage/testingPage';
 import {UserService} from './services/user.service';
+import {ShareService} from './services/shareService';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,6 +27,6 @@ import {UserService} from './services/user.service';
     HomePage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ,UserService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ,UserService,ShareService]
 })
 export class AppModule {}

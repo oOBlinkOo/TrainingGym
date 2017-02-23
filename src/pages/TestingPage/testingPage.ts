@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { App, ViewController } from 'ionic-angular';
 import {HomePage} from '../home/home';
+import {TabsPage} from '../tabs/tabs';
 import {UserService} from '../../app/services/user.service';
 import { LoadingController ,AlertController  } from 'ionic-angular';
 
@@ -33,7 +34,7 @@ validateLogin(){
                 if (responseUserService) {
                   this.loader.dismiss();
                   console.log('paso por aqui en el validate login',responseUserService);
-                    this.navCtrl.setRoot(HomePage, {
+                    this.navCtrl.setRoot(TabsPage, {
                       username:responseUserService.email,
                       password:responseUserService.password,
                       response:responseUserService
