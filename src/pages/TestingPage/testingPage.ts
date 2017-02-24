@@ -32,7 +32,7 @@ validateLogin(){
          this.userService.login(this.username, this.password).subscribe(
               responseUserService => {
                 if (responseUserService) {
-                  this.loader.dismiss();
+                  // this.loader.dismiss();
                   console.log('paso por aqui en el validate login',responseUserService);
                     this.navCtrl.setRoot(TabsPage, {
                       username:responseUserService.email,
@@ -47,7 +47,7 @@ validateLogin(){
               },  (error)=>   {
                 console.log(error);
                 // this.loader.dismiss();
-                this.showAlert('me lleva');
+                this.showAlert('A error calling the system');
                 // this.message = error.statusText;
                 
                 
