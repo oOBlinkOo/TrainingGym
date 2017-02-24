@@ -44,10 +44,12 @@ validateLogin(){
                 else {
                   this.showAlert('The user or the password dont match with any user registered');
                 }
-              }, function (error) {
-                this.showAlert();
-                this.message = error.statusText;
-                console.log(this.message);
+              },  (error)=>   {
+                console.log(error);
+                // this.loader.dismiss();
+                this.showAlert('me lleva');
+                // this.message = error.statusText;
+                
                 
                 // console.log('error something in drag and drop');
               }
@@ -59,6 +61,7 @@ showAlert(mesage :string) {
   let tittle;
   let subTitle;
   let buttons;
+  console.log('asfsfasf');
   if (mesage == null) {
       tittle = 'Error!';
       subTitle = 'Try in a while!';
@@ -78,6 +81,7 @@ showAlert(mesage :string) {
     alert.present();
   }
 
+
 // pushPage() {
 //       this.viewCtrl.dismiss();
 //       this.appCtrl.getRootNav().push(HomePage, {
@@ -91,7 +95,7 @@ showAlert(mesage :string) {
     this.loader = this.loadingCtrl.create({
       content: "Please wait...",
       // duration: 3000,
-      dismissOnPageChange: false
+      dismissOnPageChange: true
     });
     this.loader.present();
   }
