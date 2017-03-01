@@ -3,7 +3,7 @@ import { App, ViewController } from 'ionic-angular';
 import {HomePage} from '../home/home';
 import {UserService} from '../../app/services/user.service';
 import { LoadingController ,AlertController  } from 'ionic-angular';
-
+import { RegisterUserPage } from '../register-user/register-user';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -94,6 +94,13 @@ showAlert(mesage :string) {
     });
     this.loader.present();
   }
+  
+  createAccount(event, item) {
+    this.navCtrl.push( RegisterUserPage, {
+      item: item
+    });
+}
 
 
 }
+

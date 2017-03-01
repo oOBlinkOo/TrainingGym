@@ -7,13 +7,15 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { testingPage } from '../pages/TestingPage/testingPage';
 import {UserService} from './services/user.service';
+import {RegisterUserPage} from '../pages/register-user/register-user'; //added by Andres Register component
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     testingPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RegisterUserPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +26,8 @@ import {UserService} from './services/user.service';
     AboutPage,
     testingPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RegisterUserPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ,UserService]
 })
