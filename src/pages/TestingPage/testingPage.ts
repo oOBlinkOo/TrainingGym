@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { App, ViewController } from 'ionic-angular';
-import {HomePage} from '../home/home';
+// import {HomePage} from '../home/home';
 import {TabsPage} from '../tabs/tabs';
 import {UserService} from '../../app/services/user.service';
 import { LoadingController ,AlertController  } from 'ionic-angular';
