@@ -8,6 +8,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { testingPage } from '../pages/TestingPage/testingPage';
 import {UserService} from './services/user.service';
 import {RegisterUserPage} from '../pages/register-user/register-user'; //added by Andres Register component
+import {ShareService} from './services/shareService';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +31,6 @@ import {RegisterUserPage} from '../pages/register-user/register-user'; //added b
     TabsPage,
     RegisterUserPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ,UserService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ,UserService,ShareService]
 })
 export class AppModule {}

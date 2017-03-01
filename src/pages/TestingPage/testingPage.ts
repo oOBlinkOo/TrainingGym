@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { App, ViewController } from 'ionic-angular';
 import {HomePage} from '../home/home';
+import {TabsPage} from '../tabs/tabs';
 import {UserService} from '../../app/services/user.service';
 import { LoadingController ,AlertController  } from 'ionic-angular';
 import { RegisterUserPage } from '../register-user/register-user';
@@ -31,9 +32,9 @@ validateLogin(){
          this.userService.login(this.username, this.password).subscribe(
               responseUserService => {
                 if (responseUserService) {
-                  this.loader.dismiss();
+                  // this.loader.dismiss();
                   console.log('paso por aqui en el validate login',responseUserService);
-                    this.navCtrl.setRoot(HomePage, {
+                    this.navCtrl.setRoot(TabsPage, {
                       username:responseUserService.email,
                       password:responseUserService.password,
                       response:responseUserService
@@ -43,10 +44,12 @@ validateLogin(){
                 else {
                   this.showAlert('The user or the password dont match with any user registered');
                 }
-              }, function (error) {
-                this.showAlert();
-                this.message = error.statusText;
-                console.log(this.message);
+              },  (error)=>   {
+                console.log(error);
+                // this.loader.dismiss();
+                this.showAlert('A error calling the system');
+                // this.message = error.statusText;
+                
                 
                 // console.log('error something in drag and drop');
               }
@@ -58,6 +61,7 @@ showAlert(mesage :string) {
   let tittle;
   let subTitle;
   let buttons;
+  console.log('asfsfasf');
   if (mesage == null) {
       tittle = 'Error!';
       subTitle = 'Try in a while!';
@@ -77,6 +81,7 @@ showAlert(mesage :string) {
     alert.present();
   }
 
+
 // pushPage() {
 //       this.viewCtrl.dismiss();
 //       this.appCtrl.getRootNav().push(HomePage, {
@@ -90,7 +95,7 @@ showAlert(mesage :string) {
     this.loader = this.loadingCtrl.create({
       content: "Please wait...",
       // duration: 3000,
-      dismissOnPageChange: false
+      dismissOnPageChange: true
     });
     this.loader.present();
   }

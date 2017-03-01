@@ -35,6 +35,15 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+//  $label-md-text-color-focused: "#387ef5";
+  $text-input-md-highlight-color :(#f53d3d);
+  $text-input-ios-highlight-color:(#f53d3d);
+
+   $text-input-md-highlight-color-valid:(#32db64);
+   $text-input-ios-highlight-color-valid:(#32db64);
+
+   $label-md-text-color-focused: (#222);
+  //  no tiene label-md
 
 
 
