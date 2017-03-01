@@ -31,8 +31,10 @@ export class UserService{
           return false;
     });
   }
-     createAccount(names,email,password,birth,gender, location) {
-    var credentials = { names:names,email: email, password: password, birth:birth, gender:gender, location:location};
+
+  // this.firstName,this.lastName, this.myDate,this.gender,this.Password,this.Email
+     createAccount(firstName ,lastName,birth,gender, password,email) {
+    var credentials = { firstName:firstName,lastName: lastName, birth: birth, gender:gender, password:password, email:email};
   //  console.log ('llamando al api HERE ',email,password);
     return this.http.post(this.baseUrl + '/user/register', credentials,this.options).map(responseObject => {
         if(responseObject.status == 200)

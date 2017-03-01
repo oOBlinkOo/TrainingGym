@@ -25,7 +25,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>First Name</ion-label>
+      <ion-label floating>Last Name</ion-label>
       <ion-input id="name" type="text" value="" [(ngModel)]="lastName"></ion-input>
     </ion-item>
 
@@ -36,7 +36,7 @@
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="PassWord"></ion-input>
+      <ion-input type="text" value="" [(ngModel)]="Password"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -99,7 +99,7 @@
     <br>
 
  
-  <button ion-button (click)="showToast('middle')">Create Account</button>
+  <button ion-button (click)='onCreateAccount()'>Create Account</button>
 
 
 
