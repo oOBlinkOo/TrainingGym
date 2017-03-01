@@ -31,4 +31,14 @@ export class UserService{
           return false;
     });
   }
+     createAccount(names,email,password,birth,gender, location) {
+    var credentials = { names:names,email: email, password: password, birth:birth, gender:gender, location:location};
+  //  console.log ('llamando al api HERE ',email,password);
+    return this.http.post(this.baseUrl + '/user/register', credentials,this.options).map(responseObject => {
+        if(responseObject.status == 200)
+          return responseObject.json();
+        else
+          return false;
+    });
+}
 }
