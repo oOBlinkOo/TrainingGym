@@ -20,17 +20,6 @@
   <ion-list>
      <ion-item>
       <ion-label floating>First Name</ion-label>
-      <ion-input  #name (keyup)="0" id="name" type="text"  value="" [(ngModel)]="firstName" required minlength="4" maxlength="24"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>Last Name</ion-label>
-      <ion-input #Lname (keyup)="1" id="Lname" type="text" value="" [(ngModel)]="lastName" required ></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Enter a valid email address</ion-label>
-      <ion-input type="email" value="" [(ngModel)]="Email" required ></ion-input>
       <ion-input type="text" id="firstName" class="form-control"
                required minlength="4" maxlength="24" 
                name="firstName" [(ngModel)]="firstName"></ion-input>
@@ -52,13 +41,11 @@
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" maxlength="20" value="" [(ngModel)]="Password"></ion-input>
       <ion-input  id="Password"  name="Password" type="text" value="" [(ngModel)]="Password"></ion-input>
     </ion-item>
 
      <ion-item>
       <ion-label floating>Confirm your password</ion-label>
-      <ion-input type="password"  maxlength="20" value="" [(ngModel)]="ConfPassWord"></ion-input>
       <ion-input  id="ConfPassWord"  name="ConfPassWord" type="text" value="" [(ngModel)]="ConfPassWord"></ion-input>
     </ion-item>
     <ion-item>
@@ -84,7 +71,7 @@
             <img src="assets/registerUser/female.png">
             <!--<img src="../../assets/img/female.png">-->
           </ion-thumbnail>
-          <p>{{name.value}} {{Lname.value}}</p>
+          <h2>{{this.firstName}}</h2>
         </ion-item>
       </ion-list>
 
@@ -94,31 +81,10 @@
             <img src="assets/registerUser/male.png">
             <!--<img src="../../assets/img/male.png">-->
           </ion-thumbnail>
-           <p>{{name.value}} {{Lname.value}}</p>
+          <h2>{{this.firstName}}</h2>
         </ion-item>
       </ion-list>
     </div>
- 
-
-    <!--<ion-list>
-      <ion-item>
-        <ion-label>Location</ion-label>
-        <ion-select [(ngModel)]="Location">
-          <ion-option value="Yuc">Yucatan</ion-option>
-          <ion-option value="Yuc2">Yucatan</ion-option>
-          <ion-option value="Yuc3">Yucatan</ion-option>
-          <ion-option value="Yuc4">Yucatan</ion-option>
-        </ion-select>
-      </ion-item>
-
-    </ion-list>-->
-
-                
-    <br>
-    <br>
-
- 
-  <button ion-button (click)='onCreateAccount()'>Create Account</button>
 
 
   </ion-list>
@@ -128,7 +94,3 @@
 
 
 </ion-content>
-
-
-
-

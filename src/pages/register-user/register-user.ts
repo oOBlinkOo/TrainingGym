@@ -13,7 +13,6 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'page-register-user',
   templateUrl: 'register-user.html'
-  
 })
 export class RegisterUserPage {
 
@@ -25,7 +24,6 @@ export class RegisterUserPage {
   ConfPassWord:string = '';
   myDate:Date = null;
   gender:string = '';
-  
 
   heroForm: NgForm;
   @ViewChild('heroForm') currentForm: NgForm;
@@ -112,7 +110,6 @@ onSubmit(){
   
  }
 
-
     showToast(position: string , message : string) {
     let toast = this.toastCtrl.create({
       message: message,
@@ -130,15 +127,5 @@ toast.onDidDismiss(() => {
 }
 
 
-// function to validate input values
-// _keyPress(event: any) {
-//     const pattern = /[0-9\+\-\ ]/;
-//     let inputChar = String.fromCharCode(event.charCode);
-
-//     if (!pattern.test(inputChar)) {
-//       // invalid character, prevent input
-//       event.preventDefault();
-//     }
-// }
 
 
