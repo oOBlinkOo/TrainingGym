@@ -16,52 +16,55 @@
 
 
 <ion-content padding>
-
-
+<form #heroForm="ngForm"  (ngSubmit)="onSubmit()">
   <ion-list>
-    <ion-item>
+     <ion-item>
       <ion-label floating>First Name</ion-label>
-      <ion-input id="name" type="text" value="" [(ngModel)]="firstName"></ion-input>
+      <ion-input type="text" id="firstName" class="form-control"
+               required minlength="4" maxlength="24" 
+               name="firstName" [(ngModel)]="firstName"></ion-input>
+          
     </ion-item>
+    <ion-label *ngIf="formErrors.firstName" color="danger">
+          {{ formErrors.firstName }}
+    </ion-label>           
 
-    <ion-item>
+       <ion-item>
       <ion-label floating>Last Name</ion-label>
-      <ion-input id="name" type="text" value="" [(ngModel)]="lastName"></ion-input>
+      <ion-input id="lastName"  name="lastName" type="text" value="" [(ngModel)]="lastName"></ion-input>
     </ion-item>
 
-    <ion-item>
+     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="Email"></ion-input>
+      <ion-input  id="Email"  name="Email" type="text" value="" [(ngModel)]="Email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="Password"></ion-input>
+      <ion-input  id="Password"  name="Password" type="text" value="" [(ngModel)]="Password"></ion-input>
     </ion-item>
 
-    <ion-item>
+     <ion-item>
       <ion-label floating>Confirm your password</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="ConfPassWord"></ion-input>
+      <ion-input  id="ConfPassWord"  name="ConfPassWord" type="text" value="" [(ngModel)]="ConfPassWord"></ion-input>
     </ion-item>
-    <br>
-    <br>
     <ion-item>
       <ion-label>Birthdate</ion-label>
-      <ion-datetime displayFormat="DD/MMMM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime  id="myDate"  name="myDate"  displayFormat="DD/MMMM/YYYY" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
-
-    <div padding>
-      <ion-segment [(ngModel)]="gender">
-        <ion-segment-button value="male">
+    
+    <div >
+      <ion-segment id="gender"  name="gender" [(ngModel)]="gender">
+        <ion-segment-button    value="male">
           Male
         </ion-segment-button>
-        <ion-segment-button value="female">
+        <ion-segment-button    value="female">
           Female
         </ion-segment-button>
       </ion-segment>
     </div>
 
-    <div [ngSwitch]="gender">
+      <div [ngSwitch]="gender">
       <ion-list *ngSwitchCase="'female'">
         <ion-item>
           <ion-thumbnail item-left>
@@ -83,30 +86,11 @@
       </ion-list>
     </div>
 
-    <ion-list>
-      <ion-item>
-        <ion-label>Location</ion-label>
-        <ion-select [(ngModel)]="Location">
-          <ion-option value="Yuc">Yucatan</ion-option>
-          <ion-option value="Yuc2">Yucatan</ion-option>
-          <ion-option value="Yuc3">Yucatan</ion-option>
-          <ion-option value="Yuc4">Yucatan</ion-option>
-        </ion-select>
-      </ion-item>
-
-    </ion-list>
-
-
-    <br>
-    <br>
-
- 
-  <button ion-button (click)='onCreateAccount()'>Create Account</button>
-
-
-
 
   </ion-list>
+<br>
+    <button ion-button  (click)='onCreateAccount()'  [disabled]="!heroForm.form.valid" >Create Account</button>
+</form>
 
 
 </ion-content>
