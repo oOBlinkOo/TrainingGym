@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component ,ViewChild} from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 import {UserService} from '../../app/services/user.service';
+import { NgForm } from '@angular/forms';
 
 /*
   Generated class for the RegisterUser page.
@@ -26,8 +27,63 @@ export class RegisterUserPage {
   gender:string = '';
   
 
+  heroForm: NgForm;
+  @ViewChild('heroForm') currentForm: NgForm;
+
   home() {
    this.navCtrl.pop();
+}
+
+ formErrors = {
+    'firstName': '',
+    'power': ''
+  };
+   validationMessages = {
+    'firstName': {
+      'required':      'Name is required.',
+      'minlength':     'Name must be at least 4 characters long.',
+      'maxlength':     'Name cannot be more than 24 characters long.',
+      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
+    },
+    'power': {
+      'required': 'Power is required.'
+    }
+  };
+
+  ngAfterViewChecked() {
+    console.log('afterviewchecked???');
+    this.formChanged();
+  }
+
+    formChanged() {
+    if (this.currentForm === this.heroForm) { return; }
+    this.heroForm = this.currentForm;
+    if (this.heroForm) {
+      this.heroForm.valueChanges
+        .subscribe(data => this.onValueChanged(data));
+    }
+  }
+
+   onValueChanged(data?: any) {
+    if (!this.heroForm) { return; }
+    const form = this.heroForm.form;
+
+    for (const field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
+onSubmit(){
+  console.log('apreto el on submit');
 }
  onCreateAccount(){
    if (this.Password == this.ConfPassWord) {
