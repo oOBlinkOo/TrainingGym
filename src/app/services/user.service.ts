@@ -9,8 +9,8 @@ export class UserService{
 
     constructor(http:Http){
         this.http = http;
-        //  this.baseUrl = 'http://localhost:3000';
-        this.baseUrl = 'https://morning-sierra-10830.herokuapp.com';
+          this.baseUrl = 'http://localhost:3000';
+        //this.baseUrl = 'https://morning-sierra-10830.herokuapp.com';
     }
       options = new RequestOptions({
      withCredentials: true

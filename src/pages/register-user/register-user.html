@@ -21,27 +21,27 @@
   <ion-list>
     <ion-item>
       <ion-label floating>First Name</ion-label>
-      <ion-input id="name" type="text" value="" [(ngModel)]="firstName"></ion-input>
+      <ion-input  #name (keyup)="0" id="name" type="text"  value="" [(ngModel)]="firstName" required minlength="4" maxlength="24"></ion-input>
     </ion-item>
-
+  
     <ion-item>
       <ion-label floating>Last Name</ion-label>
-      <ion-input id="name" type="text" value="" [(ngModel)]="lastName"></ion-input>
+      <ion-input #Lname (keyup)="1" id="Lname" type="text" value="" [(ngModel)]="lastName" required ></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="Email"></ion-input>
+      <ion-label floating>Enter a valid email address</ion-label>
+      <ion-input type="email" value="" [(ngModel)]="Email" required ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="Password"></ion-input>
+      <ion-input type="password" maxlength="20" value="" [(ngModel)]="Password"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Confirm your password</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="ConfPassWord"></ion-input>
+      <ion-input type="password"  maxlength="20" value="" [(ngModel)]="ConfPassWord"></ion-input>
     </ion-item>
     <br>
     <br>
@@ -68,7 +68,7 @@
             <img src="assets/registerUser/female.png">
             <!--<img src="../../assets/img/female.png">-->
           </ion-thumbnail>
-          <h2>Ruby</h2>
+          <p>{{name.value}} {{Lname.value}}</p>
         </ion-item>
       </ion-list>
 
@@ -78,12 +78,17 @@
             <img src="assets/registerUser/male.png">
             <!--<img src="../../assets/img/male.png">-->
           </ion-thumbnail>
-          <h2>Luna</h2>
+           <p>{{name.value}} {{Lname.value}}</p>
         </ion-item>
       </ion-list>
     </div>
+ 
 
-    <ion-list>
+
+
+
+
+    <!--<ion-list>
       <ion-item>
         <ion-label>Location</ion-label>
         <ion-select [(ngModel)]="Location">
@@ -94,9 +99,9 @@
         </ion-select>
       </ion-item>
 
-    </ion-list>
+    </ion-list>-->
 
-
+                
     <br>
     <br>
 
@@ -105,8 +110,11 @@
 
 
 
-
   </ion-list>
 
 
 </ion-content>
+
+
+
+
