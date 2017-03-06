@@ -55,17 +55,16 @@ export class RegisterUserPage {
     },
       'Email': {
       'required':      'Email is required.',
-      'pattern':      'This is not a valid email'
+      'pattern':      'This is not a valid email.'
      
     },
       'Password': {
       'required':      'password is required.',
       'minlength':     'Password must be at least 8 characters long.',
       'maxlength':     'Password cannot be more than 12 characters long.',
-      'validateEqual': 'Mismatch Password'
     },
       'ConfPassWord': {
-         'required':      'Retypassword is required.',
+         'required':      'This field is required.',
          'validateEqual': 'Mismatch Password.'
 
     },
