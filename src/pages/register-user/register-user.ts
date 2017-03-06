@@ -62,17 +62,19 @@ export class RegisterUserPage {
       'required':      'password is required.',
       'minlength':     'Password must be at least 8 characters long.',
       'maxlength':     'Password cannot be more than 12 characters long.',
+      'validateEqual': 'Mismatch Password'
     },
       'ConfPassWord': {
-     'validateEqual':  'Password is not matching',
-'reverse':  'Password is not matching',
+         'required':      'Retypassword is required.',
+         'validateEqual': 'Mismatch Password'
+
     },
 
 
   };
 
   ngAfterViewChecked() {
-    console.log('afterviewchecked???');
+    // console.log('afterviewchecked???');
     this.formChanged();
   }
 
@@ -88,14 +90,17 @@ export class RegisterUserPage {
    onValueChanged(data?: any) {
     if (!this.registerForm) { return; }
     const form = this.registerForm.form;
-
+      
     for (const field in this.formErrors) {
       // clear previous error message (if any)
       this.formErrors[field] = '';
       const control = form.get(field);
-
+      
       if (control && control.dirty && !control.valid) {
+       
         const messages = this.validationMessages[field];
+         console.log(control);
+        console.log(messages);
         for (const key in control.errors) {
           this.formErrors[field] += messages[key] + ' ';
         }

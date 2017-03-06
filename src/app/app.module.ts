@@ -9,6 +9,7 @@ import { testingPage } from '../pages/TestingPage/testingPage';
 import {UserService} from './services/user.service';
 import {RegisterUserPage} from '../pages/register-user/register-user'; //added by Andres Register component
 import {ShareService} from './services/shareService';
+import { EqualValidator } from './utilities/equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {ShareService} from './services/shareService';
     testingPage,
     HomePage,
     TabsPage,
-    RegisterUserPage
+    RegisterUserPage,EqualValidator
   ],
   imports: [
     IonicModule.forRoot(MyApp)

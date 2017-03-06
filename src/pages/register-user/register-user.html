@@ -49,18 +49,24 @@
    
   <ion-item>
       <ion-label floating  >Password</ion-label>
-      <ion-input  id="Password"  name="Password" type="password" value="" [(ngModel)]="Password" required minlength="8" maxlength="12"
-      validateEqual="retypePassword" reverse="true" #password="ngModel"></ion-input>
+      <ion-input  id="Password"  name="Password" type="password" value="" [(ngModel)]="Password" 
+      minlength="4" maxlength="12" 
+      required
+      reverse="true"
+      validateEqual="ConfPassWord">
+      </ion-input>
     </ion-item>
-       <ion-label *ngIf="formErrors.Password" color="danger">
-          {{ formErrors.Password }}
-    </ion-label>       
+       <ion-label *ngIf="formErrors.Password" color="danger">    {{ formErrors.Password }}</ion-label>       
 
      <ion-item>
       <ion-label floating>Confirm your password</ion-label>
-      <ion-input  id="ConfPassWord"  name="ConfPassWord" type="password" value="" [(ngModel)]="ConfPassWord" required 
-      validateEqual="password" reverse="false" #retypePassword="ngModel"></ion-input>
+      <ion-input  id="ConfPassWord"  name="ConfPassWord" type="password" value="" [(ngModel)]="ConfPassWord"
+        required
+        validateEqual="Password" 
+        reverse="false">
+       </ion-input>
    </ion-item>
+
 
   <ion-label *ngIf="formErrors.ConfPassWord" color="danger">
           {{ formErrors.ConfPassWord }}
