@@ -60,7 +60,7 @@ export class RegisterUserPage {
     },
       'Password': {
       'required':      'password is required.',
-      'minlength':     'Password must be at least 8 characters long.',
+      'minlength':     'Password must be at least 6 characters long.',
       'maxlength':     'Password cannot be more than 12 characters long.',
     },
       'ConfPassWord': {
