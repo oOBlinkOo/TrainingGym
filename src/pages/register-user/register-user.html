@@ -16,12 +16,12 @@
 
 
 <ion-content padding>
-<form #heroForm="ngForm"  (ngSubmit)="onSubmit()">
+<form #registerForm="ngForm"  (ngSubmit)="onSubmit()">
   <ion-list>
      <ion-item>
       <ion-label floating>First Name</ion-label>
       <ion-input type="text" id="firstName" class="form-control"
-               required minlength="4" maxlength="24" 
+               required minlength="2" maxlength="24" 
                name="firstName" [(ngModel)]="firstName"></ion-input>
           
     </ion-item>
@@ -31,30 +31,47 @@
 
        <ion-item>
       <ion-label floating>Last Name</ion-label>
-      <ion-input id="lastName"  name="lastName" type="text" value="" [(ngModel)]="lastName"></ion-input>
+      <ion-input id="lastName"  name="lastName" type="text" value="" [(ngModel)]="lastName" class="form-control"
+               required minlength="2" maxlength="24"></ion-input>
     </ion-item>
+       <ion-label *ngIf="formErrors.lastName" color="danger">
+          {{ formErrors.lastName }}
+    </ion-label>           
 
      <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input  id="Email"  name="Email" type="text" value="" [(ngModel)]="Email"></ion-input>
+      <ion-input  id="Email"  name="Email" type="email" value="" [(ngModel)]="Email" requiredr minlength="1" required pattern="^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@(-?[a-zA-Z0-9])(-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$"  >></ion-input>
     </ion-item>
+     <ion-label *ngIf="formErrors.Email" color="danger">
+          {{ formErrors.Email}}
+    </ion-label>       
 
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input  id="Password"  name="Password" type="text" value="" [(ngModel)]="Password"></ion-input>
+   
+  <ion-item>
+      <ion-label floating  >Password</ion-label>
+      <ion-input  id="Password"  name="Password" type="password" value="" [(ngModel)]="Password" required minlength="8" maxlength="12"
+      validateEqual="retypePassword" reverse="true" #password="ngModel"></ion-input>
     </ion-item>
+       <ion-label *ngIf="formErrors.Password" color="danger">
+          {{ formErrors.Password }}
+    </ion-label>       
 
      <ion-item>
       <ion-label floating>Confirm your password</ion-label>
-      <ion-input  id="ConfPassWord"  name="ConfPassWord" type="text" value="" [(ngModel)]="ConfPassWord"></ion-input>
-    </ion-item>
+      <ion-input  id="ConfPassWord"  name="ConfPassWord" type="password" value="" [(ngModel)]="ConfPassWord" required 
+      validateEqual="password" reverse="false" #retypePassword="ngModel"></ion-input>
+   </ion-item>
+
+  <ion-label *ngIf="formErrors.ConfPassWord" color="danger">
+          {{ formErrors.ConfPassWord }}
+    </ion-label>       
     <ion-item>
       <ion-label>Birthdate</ion-label>
-      <ion-datetime  id="myDate"  name="myDate"  displayFormat="DD/MMMM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime  id="myDate"  name="myDate"  displayFormat="DD/MMMM/YYYY" [(ngModel)]="myDate" required></ion-datetime>
     </ion-item>
     
     <div >
-      <ion-segment id="gender"  name="gender" [(ngModel)]="gender">
+      <ion-segment id="gender"  name="gender" [(ngModel)]="gender" required>
         <ion-segment-button    value="male">
           Male
         </ion-segment-button>
@@ -71,7 +88,7 @@
             <img src="assets/registerUser/female.png">
             <!--<img src="../../assets/img/female.png">-->
           </ion-thumbnail>
-          <h2>{{this.firstName}}</h2>
+            <h2>{{this.firstName}} {{this.lastName}}</h2>
         </ion-item>
       </ion-list>
 
@@ -81,7 +98,7 @@
             <img src="assets/registerUser/male.png">
             <!--<img src="../../assets/img/male.png">-->
           </ion-thumbnail>
-          <h2>{{this.firstName}}</h2>
+          <h2>{{this.firstName}} {{this.lastName}}</h2>
         </ion-item>
       </ion-list>
     </div>
@@ -89,7 +106,7 @@
 
   </ion-list>
 <br>
-    <button ion-button  (click)='onCreateAccount()'  [disabled]="!heroForm.form.valid" >Create Account</button>
+    <button ion-button  (click)='onCreateAccount()'  [disabled]="!registerForm.form.valid" >Create Account</button>
 </form>
 
 

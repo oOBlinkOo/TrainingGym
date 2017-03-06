@@ -25,8 +25,8 @@ export class RegisterUserPage {
   myDate:Date = null;
   gender:string = '';
 
-  heroForm: NgForm;
-  @ViewChild('heroForm') currentForm: NgForm;
+  registerForm: NgForm;
+  @ViewChild('registerForm') currentForm: NgForm;
 
   home() {
    this.navCtrl.pop();
@@ -34,18 +34,41 @@ export class RegisterUserPage {
 
  formErrors = {
     'firstName': '',
-    'power': ''
+    'lastName': '',
+'Password': '',
+'ConfPassWord': '',
+'Email': '',
+'myDate': '',
+'gender': '',
   };
    validationMessages = {
     'firstName': {
-      'required':      'Name is required.',
-      'minlength':     'Name must be at least 4 characters long.',
+      'required':      'First Name is required.',
+      'minlength':     'Name must be at least 2 characters long.',
       'maxlength':     'Name cannot be more than 24 characters long.',
-      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
+          },
+    'lastName': {
+      'required':      'Last Name is required.',
+      'minlength':     'Name must be at least 2 characters long.',
+      'maxlength':     'Name cannot be more than 24 characters long.',
+     
     },
-    'power': {
-      'required': 'Power is required.'
-    }
+      'Email': {
+      'required':      'Email is required.',
+      'pattern':      'This is not a valid email'
+     
+    },
+      'Password': {
+      'required':      'password is required.',
+      'minlength':     'Password must be at least 8 characters long.',
+      'maxlength':     'Password cannot be more than 12 characters long.',
+    },
+      'ConfPassWord': {
+     'validateEqual':  'Password is not matching',
+'reverse':  'Password is not matching',
+    },
+
+
   };
 
   ngAfterViewChecked() {
@@ -54,17 +77,17 @@ export class RegisterUserPage {
   }
 
     formChanged() {
-    if (this.currentForm === this.heroForm) { return; }
-    this.heroForm = this.currentForm;
-    if (this.heroForm) {
-      this.heroForm.valueChanges
+    if (this.currentForm === this.registerForm) { return; }
+    this.registerForm = this.currentForm;
+    if (this.registerForm) {
+      this.registerForm.valueChanges
         .subscribe(data => this.onValueChanged(data));
     }
   }
 
    onValueChanged(data?: any) {
-    if (!this.heroForm) { return; }
-    const form = this.heroForm.form;
+    if (!this.registerForm) { return; }
+    const form = this.registerForm.form;
 
     for (const field in this.formErrors) {
       // clear previous error message (if any)
@@ -104,9 +127,10 @@ onSubmit(){
 
 
         
-   }else {
-        console.log ('show a danger or something not finish this!');
    }
+  //  else {
+  //      console.log ('show a danger or something not finish this!');
+  //  }
   
  }
 
