@@ -45,7 +45,6 @@
      <ion-label *ngIf="formErrors.Email" color="danger">
           {{ formErrors.Email}}
     </ion-label>       
-
    
   <ion-item>
       <ion-label floating  >Password</ion-label>
@@ -70,7 +69,9 @@
 
   <ion-label *ngIf="formErrors.ConfPassWord" color="danger">
           {{ formErrors.ConfPassWord }}
-    </ion-label>       
+    </ion-label>
+      <br>
+      <br>       
     <ion-item>
       <ion-label>Birthdate</ion-label>
       <ion-datetime  id="myDate"  name="myDate"  displayFormat="DD/MMMM/YYYY" [(ngModel)]="myDate" required></ion-datetime>
