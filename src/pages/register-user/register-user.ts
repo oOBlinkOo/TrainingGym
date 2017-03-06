@@ -66,7 +66,7 @@ export class RegisterUserPage {
     },
       'ConfPassWord': {
          'required':      'Retypassword is required.',
-         'validateEqual': 'Mismatch Password'
+         'validateEqual': 'Mismatch Password.'
 
     },
 
@@ -99,10 +99,16 @@ export class RegisterUserPage {
       if (control && control.dirty && !control.valid) {
        
         const messages = this.validationMessages[field];
-         console.log(control);
-        console.log(messages);
+        //  console.log(control);
+        // console.log(messages);
         for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
+          // console.log(key);
+          // console.log(this.formErrors[field]);
+           
+          if(this.formErrors[field] ==''){
+            this.formErrors[field] += messages[key] + ' ';
+          } 
+        
         }
       }
     }
