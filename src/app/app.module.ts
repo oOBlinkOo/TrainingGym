@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { testingPage } from '../pages/TestingPage/testingPage';
 import {UserService} from './services/user.service';
 import {RegisterUserPage} from '../pages/register-user/register-user'; //added by Andres Register component
+import { ForgotpasswordPage } from '../pages/forgot-password/forgot-password'; //added by Andres forgotaccount component
 import {ShareService} from './services/shareService';
 import { EqualValidator } from './utilities/equal-validator.directive';
 
@@ -18,7 +19,9 @@ import { EqualValidator } from './utilities/equal-validator.directive';
     testingPage,
     HomePage,
     TabsPage,
-    RegisterUserPage,EqualValidator
+    RegisterUserPage,
+    EqualValidator,
+    ForgotpasswordPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +33,8 @@ import { EqualValidator } from './utilities/equal-validator.directive';
     testingPage,
     HomePage,
     TabsPage,
-    RegisterUserPage
+    RegisterUserPage,
+    ForgotpasswordPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ,UserService,ShareService]
 })

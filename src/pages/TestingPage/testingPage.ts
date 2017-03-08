@@ -6,6 +6,7 @@ import {UserService} from '../../app/services/user.service';
 import { LoadingController ,AlertController  } from 'ionic-angular';
 import { RegisterUserPage } from '../register-user/register-user';
 import { NavController } from 'ionic-angular';
+import { ForgotpasswordPage } from '../forgot-password/forgot-password';
 
 @Component({
   selector: 'testing-page',
@@ -106,6 +107,12 @@ showAlert(mesage :string) {
     });
 }
 
+  forgotAccount(event, item) {
+    this.navCtrl.push( ForgotpasswordPage, {
+      item: item
+    });
 
+
+}
 }
 
