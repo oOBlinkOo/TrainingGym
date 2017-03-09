@@ -26,7 +26,9 @@ export class TabsPage {
     //    this.username = params.get('username');
     // this.password = params.get('password');
     // this.response = params.get('response');
-      this.shareService.setBasicInfo( params.get('username'), params.get('password'), params.get('response'))
+      this.shareService.setBasicInfo( params.get('username'),
+                                      params.get('password'), 
+                                      params.get('response'));
     
   }
 
